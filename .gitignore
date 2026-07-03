@@ -15,6 +15,9 @@ data/
 *.csv
 *.json
 
+#personal notes
+notes.md
+
 #editor settings
 .vscode/
 .idea/
