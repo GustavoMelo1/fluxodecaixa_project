@@ -10,7 +10,7 @@ from config import PATH_DB
 logger = logging.getLogger(__name__)
 
 def insert_flow(date, description, category, type, value, bank):
-    '''Insere um registro de gasto novo no banco'''
+    """Insere um registro de gasto novo no banco."""
     with sqlite3.connect(PATH_DB) as conn:
         cursor = conn.cursor()
         cursor.execute('''
@@ -21,7 +21,7 @@ def insert_flow(date, description, category, type, value, bank):
     logger.info(f"Expenditure entered: {description} - R${value}")    
 
 def balance_flow():
-    '''Calcula o saldo (ganhos menos gastos) no banco'''
+    """Calcula o saldo (ganhos menos gastos) no banco."""
     with sqlite3.connect(PATH_DB) as conn:
         cursor = conn.cursor()
         
@@ -35,7 +35,7 @@ def balance_flow():
     return balance
 
 def delete_flow(id):
-    '''Apaga registros de gastos pelo ID no banco'''
+    """Apaga registros de gastos pelo ID no banco."""
     with sqlite3.connect(PATH_DB) as conn:
         cursor = conn.cursor()
         cursor.execute("DELETE FROM flow WHERE id = ?", (id,))
@@ -43,7 +43,7 @@ def delete_flow(id):
     logger.info(f"Item deleted: id {id}")
 
 def select_flow():
-    '''Busca e retorna registros de gastos no banco'''
+    """Busca e retorna todos os gastos cadastrados no banco."""
     with sqlite3.connect(PATH_DB) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM flow")
