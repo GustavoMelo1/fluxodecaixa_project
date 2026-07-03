@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 os.makedirs(os.path.dirname(PATH_DB), exist_ok=True)
 
 def create_db():
+    """Cria as tabelas flow, investment e wishes no banco se ainda não existirem."""
     with sqlite3.connect(PATH_DB) as conn:
         cursor = conn.cursor()
 
