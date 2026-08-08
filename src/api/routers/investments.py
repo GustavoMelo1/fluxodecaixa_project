@@ -18,7 +18,7 @@ def investments():
     return {"investments": select_investment()}
 
 @router.post("/investments")
-def create_investiments(expense: Investments):
+def create_investments(expense: Investments):
     """Cria um novo tipo de investimento no banco"""
     insert_investment(expense.date, expense.institution, expense.investment, expense.movement, expense.value, expense.asset_name)
 
