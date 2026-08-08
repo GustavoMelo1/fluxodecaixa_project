@@ -17,9 +17,9 @@ def wishes():
     return {"wishes": select_wishes()}
 
 @router.post("/wishes")
-def create_wishes(expense: Wishes):
+def create_wishes(wishes: Wishes):
     """Cria um desejo no banco"""
-    insert_wishes(expense.name, expense.search, expense.ignore, expense.stores, expense.max_value)
+    insert_wishes(wishes.name, wishes.search, wishes.ignore, wishes.stores, wishes.max_value)
 
 @router.delete("/wishes/{id}")
 def remove_wishes(id: int):
